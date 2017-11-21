@@ -1,5 +1,6 @@
 from django.db import models
 import uuid
+from django.core.urlresolvers import reverse
 
 # Create your models here.
 
@@ -23,6 +24,9 @@ class Organization(models.Model):
 
     def __unicode__(self):
         return
+
+    def get_absolute_url(self):
+        return reverse('organizations:organization_details', args=[self.slug])
 
 
 class Period(models.Model):
@@ -50,3 +54,6 @@ class Goal(models.Model):
 
     def __unicode__(self):
         return
+
+    def get_absolute_url(self):
+        return reverse('donations:categories', args=[self.id])

@@ -5,7 +5,8 @@ from .models import Category, Donation, Payment, Cancellation, RelDonationCancel
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    prepopulated_fields = {'slug': ('name',)}
+    list_display = ['name', 'id']
 
 
 admin.site.register(Category, CategoryAdmin)

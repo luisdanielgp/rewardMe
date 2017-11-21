@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Organizations{% endblock title %}
+{% block content %}
+    <div class="row">
+        {% for organization in organizations %}
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{organization.logo}}" alt="Card image cap" width="40px" height="auto">
+                <div class="card-body">
+                    <h4 class="card-title">{{organization.name}}</h4>
+                    <p class="card-text">{{organization.description}}</p>
+                    <h2 class="card-text">Donadores:</h2>
+                    <p class="card-text">{{organization.donations_number}}</p>
+                    <a href="{{ organization.get_absolute_url }}" class="btn btn-primary">Ver</a>
+                </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock content %}

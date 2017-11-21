@@ -20,7 +20,7 @@ admin.site.register(Period, PeriodAdmin)
 
 
 class GoalAdmin(admin.ModelAdmin):
-    list_display = ['amount', 'organization', 'period']
+    list_display = ['id', 'amount', 'organization', 'period']
 
 
 admin.site.register(Goal, GoalAdmin)

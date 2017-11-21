@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Organization Details{% endblock title %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>{{organization.name}}</h1>
+        <img src="{{organization.logo}}" alt="organization_logo" width="40%" height="auto"/>
+        <p>{{organization.description}}</p>
+        <h2>Objetivos</h2>
+
+        {% for goal in goals %}
+            <h4>{{goal.amount}}</h4>
+            <p>{{goal.description}}</p>
+            <p>
+                Periodo: {{goal.period}}
+            </p>
+
+            <a href="{{ goal.get_absolute_url }}" class="btn btn-primary">Donar</a>
+
+        {% endfor %}
+
+    </div>
+{% endblock content %}
