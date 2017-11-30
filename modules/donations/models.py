@@ -50,9 +50,9 @@ class Donation(models.Model):
 
 class Payment(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    user = models.ForeignKey(User)
+    # user = models.ForeignKey(User)
     donation = models.OneToOneField(Donation)
-    amount = models.DecimalField(decimal_places=2, max_digits=10)
+    # amount = models.DecimalField(decimal_places=2, max_digits=10)
     status = models.CharField(max_length=80)  # checar de paypal
 
     def __str__(self):
