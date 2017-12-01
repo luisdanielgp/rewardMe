@@ -3,12 +3,10 @@
 {% block content %}
 <h1>Elegiste donar de ${{ category.start }} a ${{ category.end }} pesos</h1>
 <h2>Selecciona la cantidad deseada:</h2>
-{# <input type="number" min="{{ category.start }}" max="{{ category.end }}" />#}
 <br>
-<div class="input-group input-group-lg">
-  <span class="input-group-addon">$</span>
-  <input type="number" min="{{ category.start }}" max="{{ category.end }}" class="form-control" aria-label="Amount (to the nearest dollar)">
-</div>
-<br>
-<a href="#" class="btn btn-primary">Donar</a>
+  <form method = 'post'> {% csrf_token %}
+      {{ form }}
+      <input type="submit" value="Donar" />
+  </form>
+{# <a href="#" class="btn btn-primary">Donar</a> #}
 {% endblock content %}

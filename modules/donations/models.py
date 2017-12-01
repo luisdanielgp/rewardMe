@@ -36,13 +36,13 @@ class Donation(models.Model):
     organization = models.ForeignKey(
         Organization)
     goal = models.ForeignKey(Goal)
-    user = models.ForeignKey(User)
+    user = models.ForeignKey(User, null=True)
     category = models.ForeignKey(Category)
     amount = models.DecimalField(decimal_places=2, max_digits=10)
     status = models.CharField(max_length=50, choices=STATUSES)
 
-    def __str__(self):
-        return self.amount
+    # def __str__(self):
+    #     return self.id
 
     def __unicode__(self):
         return
